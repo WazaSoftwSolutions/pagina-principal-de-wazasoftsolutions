@@ -256,4 +256,46 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Error al inicializar GSAP: ", e);
     }
 
+    // Lógica de envío del formulario de contacto
+    const contactForm = document.getElementById('contact-form');
+    const contactMessage = document.getElementById('contact-message');
+
+    if (contactForm && contactMessage) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevenir envío normal del formulario
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // Mostrar mensaje de carga
+            contactMessage.className = 'mb-6 bg-blue-500 text-white px-4 py-3 rounded-lg';
+            contactMessage.innerHTML = 'Enviando mensaje...';
+            contactMessage.classList.remove('hidden');
+
+            fetch('/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
+                    contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
+                    contactForm.reset(); // Limpiar el formulario
+                } else {
+                    contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
+                    contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
+                contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
+            });
+        });
+    }
+
 });

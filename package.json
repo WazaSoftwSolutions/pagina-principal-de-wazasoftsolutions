@@ -1,0 +1,25 @@
+{
+  "name": "pagina-principal-de-wazasoftsolutions",
+  "version": "1.0.0",
+  "description": "Codigo de la pagina principal de Wazasoftsolutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WazaSoftWolutions/pagina-principal-de-wazasoftsolutions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WazaSoftWolutions/pagina-principal-de-wazasoftsolutions/issues"
+  },
+  "homepage": "https://github.com/WazaSoftWolutions/pagina-principal-de-wazasoftsolutions#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "nodemailer": "^7.0.10"
+  }
+}

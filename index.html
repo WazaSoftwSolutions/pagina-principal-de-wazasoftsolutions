@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -611,7 +611,9 @@
         </div>
     </section>
 
-    <section id="testimonials" class="py-20 bg-white" role="region" aria-labelledby="testimonials-title"> 
+   
+
+    <section id="testimonials" class="py-20 bg-white" role="region" aria-labelledby="testimonials-title">
         <div class="container mx-auto px-6" data-aos="zoom-in">
             <h2 id="testimonials-title" class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros clientes</h2>
             
@@ -730,7 +732,8 @@
             </div>
 
             <div class="max-w-3xl mx-auto">
-                <form action="https://formspree.io/f/TU_URL_DE_FORMSPREE" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="contact-message" class="mb-6 hidden"></div>
+                <form id="contact-form" action="/contact" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
                     <div class="relative z-0">
                         <input type="text" name="name" id="name" required
@@ -881,5 +884,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="public/js/script.js"></script>
 
+   
 </body>
 </html>
