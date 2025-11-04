@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waza Softsolutions - Desarrollo de Software a Medida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="public/assets/images/WSLGV01WT.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="public/assets/css/styles.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Waza Softsolutions",
+      "url": "https://www.wazasoft.com", 
+      "logo": "https://www.wazasoft.com/assets/images/WSLGV01BT.png", 
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contacto@wazasoft.com",
+        "contactType": "Customer Service"
+      },
+      "sameAs": [
+        "https://github.com/tu-usuario", 
+        "https://linkedin.com/tu-usuario" 
+      ]
+    }
+    </script>
+
+   
+</head>
+<body class="bg-white text-gray-900">
+
+    <div id="preloader">
+        <img src="public/assets/images/WSLGV01BT.png" alt="Logo Waza Softsolutions" class="logo-pulse">
+    </div>
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
+    <div id="read-progress-bar"></div>
+
+    <nav class="bg-white/95 border-b border-gray-200/75 sticky top-0 z-50 backdrop-blur-sm" role="navigation">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center gap-3" aria-label="Página de inicio de Waza Softsolutions">
+                <img src="public/assets/images/WSLGV01BT.png" alt="Logo Waza Softsolutions" class="h-8 w-8">
+                <span class="font-extrabold text-2xl text-black">Waza Softsolutions</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#services" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Servicios</a>
+                <a href="#portfolio" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Proyectos</a>
+                <a href="#why-us" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Ventajas</a>
+                <a href="#tech" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Tecnologías</a>
+                <a href="#about" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Nosotros</a>
+                <a href="#team" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Integrantes</a>
+                <a href="#insights" class="text-gray-700 hover:text-black font-medium transition-all duration-300">Insights</a>
+                <a href="#faq" class="text-gray-700 hover:text-black font-medium transition-all duration-300">FAQ</a>
+                <a href="#contact" class="bg-black text-white py-2 px-5 rounded-lg font-semibold text-sm hover:bg-gray-800 transition-all duration-300">Contacto</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-black focus:outline-none" aria-label="Abrir menú móvil" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-200">
+            <a href="#services" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Servicios</a>
+            <a href="#portfolio" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Proyectos</a>
+            <a href="#why-us" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Ventajas</a>
+            <a href="#tech" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Tecnologías</a>
+            <a href="#about" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Nosotros</a>
+            <a href="#team" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Integrantes</a>
+            <a href="#insights" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Insights</a>
+            <a href="#faq" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">FAQ</a>
+            <a href="#contact" class="block text-gray-700 hover:bg-gray-100 px-6 py-3 font-medium">Contacto</a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen bg-gray-200 overflow-hidden flex items-center" role="banner">
+        <div class="parallax-bg"></div>
+        <div class="particles">
+            <div class="particle" style="width: 4px; height: 4px; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 6px; height: 6px; left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 4px; height: 4px; left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; left: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="width: 5px; height: 5px; left: 50%; animation-delay: 3s;"></div>
+            <div class="particle" style="width: 4px; height: 4px; left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="width: 7px; height: 7px; left: 70%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="width: 5px; height: 5px; left: 80%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="width: 6px; height: 6px; left: 90%; animation-delay: 3.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 py-24 flex flex-col items-center text-center relative z-10">
+            <div class="glass-logo rounded-3xl p-4 inline-block mb-8 reveal-text" style="animation-delay: 0.1s;">
+                <img src="public/assets/images/WSLGV01BT.png" alt="Logo principal de Waza Softsolutions" class="w-64">
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-extrabold text-black mb-4 gradient-text reveal-text" style="animation-delay: 0.3s;">
+                Software profesional, hecho a tu medida.
+            </h1>
+            <p class="text-xl text-gray-800 mb-8 max-w-2xl reveal-text" style="animation-delay: 0.5s;">
+                En Waza Softsolutions convertimos tus ideas en soluciones de software robustas, escalables y diseñadas exclusivamente para tus necesidades.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal-text" style="animation-delay: 0.7s;">
+                <a href="#contact" class="btn-shine bg-black text-white py-4 px-10 rounded-xl font-bold text-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl">
+                    Inicia tu Proyecto
+                </a>
+                <a href="#services" class="btn-shine bg-white text-black border-2 border-black py-4 px-10 rounded-xl font-bold text-lg hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110">
+                    Ver Servicios
+                </a>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <section id="clients" class="py-16 bg-gray-50" role="region" aria-labelledby="clients-title">
+        <div class="container mx-auto px-6">
+            <h3 id="clients-title" class="text-center text-xl font-semibold text-gray-600 mb-10" data-aos="fade-up">
+                Usado por las empresas más innovadoras
+            </h3>
+            
+            <div class="logo-marquee">
+                <div class="logo-marquee-track">
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">LOGO 1</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">EMPRESA B</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">STARTUP</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">TECH CO.</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">CLIENTE 5</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">MARCA SEIS</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">LOGO 1</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">EMPRESA B</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">STARTUP</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">TECH CO.</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">CLIENTE 5</text></svg></div>
+                    <div><svg viewBox="0 0 128 35" xmlns="http://www.w3.org/2000/svg"><text x="10" y="25" font-family="Arial, sans-serif" font-size="20" font-weight="bold">MARCA SEIS</text></svg></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="flex flex-col md:flex-row min-h-[70vh] overflow-hidden" role="region" aria-label="Nuestros Servicios">
+        
+        <div id="panel-left" class="panel w-full md:w-1/2 bg-white text-gray-900 flex items-center justify-center p-10 cursor-pointer transition-all duration-700 ease-in-out relative" data-aos="fade-right">
+            <div class="panel-content text-center max-w-md">
+                <div class="mb-6">
+                    <svg class="w-16 h-16 text-black mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+                </div>
+                <h2 class="panel-title text-3xl md:text-4xl font-extrabold mb-4">Desarrollo Web</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    Creamos aplicaciones web robustas, escalables y optimizadas para el rendimiento, desde dashboards complejos hasta e-commerce.
+                </p>
+                <span class="bg-black text-white py-3 px-8 rounded-lg font-bold text-lg hover:bg-gray-800 transition-all duration-300">
+                    Ver Proyectos Web
+                </span>
+            </div>
+        </div>
+
+        <div id="panel-right" class="panel w-full md:w-1/2 bg-gray-900 text-white flex items-center justify-center p-10 cursor-pointer transition-all duration-700 ease-in-out relative" data-aos="fade-left">
+            <div class="panel-content text-center max-w-md">
+                <div class="mb-6">
+                    <svg class="w-16 h-16 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                </div>
+                <h2 class="panel-title text-3xl md:text-4xl font-extrabold mb-4">Aplicaciones Móviles</h2>
+                <p class="text-lg text-gray-300 mb-8">
+                    Diseñamos experiencias móviles nativas e híbridas para iOS y Android que conectan con tus usuarios dondequiera que estén.
+                </p>
+                <span class="bg-white text-black py-3 px-8 rounded-lg font-bold text-lg hover:bg-gray-200 transition-all duration-300">
+                    Ver Proyectos Móviles
+                </span>
+            </div>
+        </div>
+
+    </section>
+    <section id="why-us" class="py-20 bg-black dot-pattern relative text-white" role="region" aria-labelledby="why-us-title">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black to-transparent opacity-80"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 id="why-us-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">El Valor de Waza Softsolutions</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                
+                <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-6 -left-6 icon-rotate">
+                        <div class="bg-white p-3 rounded-xl">
+                            <svg class="w-10 h-10 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12M3.75 3h16.5M3.75 3v16.5M16.5 3c.906 0 1.638.45 2.12.984M16.5 3v4.875c0 .621-.504 1.125-1.125 1.125H13.5M16.5 3v1.875m0 1.875c0 .621.504 1.125 1.125 1.125h2.25c.621 0 1.125-.504 1.125-1.125V3.75c0-.621-.504-1.125-1.125-1.125h-2.25c-.621 0-1.125.504-1.125 1.125z" /></svg>
+                        </div>
+                    </div>
+                    <div class="card-glow glass-advantage p-8 rounded-2xl ml-4 mt-4">
+                        <h3 class="text-xl font-bold mb-3 mt-6">Totalmente a Medida</h3>
+                        <p class="text-gray-300">No usamos plantillas. Cada línea de código está diseñada para resolver sus desafíos específicos.</p>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-6 -left-6 icon-rotate">
+                        <div class="bg-white p-3 rounded-xl">
+                            <svg class="w-10 h-10 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+                        </div>
+                    </div>
+                    <div class="card-glow glass-advantage p-8 rounded-2xl ml-4 mt-4">
+                        <h3 class="text-xl font-bold mb-3 mt-6">Calidad Garantizada</h3>
+                        <p class="text-gray-300">Implementamos pruebas rigurosas y estándares de código para entregar un producto final robusto.</p>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute -top-6 -left-6 icon-rotate">
+                        <div class="bg-white p-3 rounded-xl">
+                            <svg class="w-10 h-10 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                    </div>
+                    <div class="card-glow glass-advantage p-8 rounded-2xl ml-4 mt-4">
+                        <h3 class="text-xl font-bold mb-3 mt-6">Soporte Continuo</h3>
+                        <p class="text-gray-300">Nuestra relación no termina con la entrega. Ofrecemos soporte y mantenimiento continuo.</p>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute -top-6 -left-6 icon-rotate">
+                        <div class="bg-white p-3 rounded-xl">
+                            <svg class="w-10 h-10 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg>
+                        </div>
+                    </div>
+                    <div class="card-glow glass-advantage p-8 rounded-2xl ml-4 mt-4">
+                        <h3 class="text-xl font-bold mb-3 mt-6">Diseño y UX Moderno</h3>
+                        <p class="text-gray-300">Creemos que el software potente también debe ser intuitivo y fácil de usar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <section id="stats" class="py-20 bg-white" role="region" aria-label="Estadísticas de la compañía">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10 text-center">
+                
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <span class="block text-6xl font-extrabold text-black counter tracking-tighter" data-target="42">0</span>
+                    <span class="block text-xl font-medium text-gray-700 mt-2">Proyectos Completados</span>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <span class="block text-6xl font-extrabold text-black counter tracking-tighter" data-target="15">0</span>
+                    <span class="block text-xl font-medium text-gray-700 mt-2">Clientes Satisfechos</span>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <span class="block text-6xl font-extrabold text-black counter tracking-tighter" data-target="50000">0</span>
+                    <span class="block text-xl font-medium text-gray-700 mt-2">Líneas de Código</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 bg-gray-100" role="region" aria-labelledby="process-title">
+        <div class="container mx-auto px-6">
+            <h2 id="process-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Nuestro Proceso Simplificado</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div id="process-timeline" class="hidden md:block absolute left-1/2 -ml-px w-0.5 h-full bg-gray-300" aria-hidden="true"></div>
+                    <div class="md:flex md:items-center md:justify-start mb-12" data-aos="fade-right">
+                        <div class="md:w-1/2 md:pr-8">
+                            <h3 class="text-2xl font-bold mb-2">01. Descubrimiento y Análisis</h3>
+                            <p class="text-gray-700">Escuchamos sus ideas y analizamos sus requisitos. Definimos el alcance, los objetivos y la estrategia tecnológica del proyecto.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0 md:text-right">
+                            <span class="text-6xl font-extrabold text-gray-200 tracking-tighter" aria-hidden="true">01</span>
+                        </div>
+                    </div>
+
+                    <div class="md:flex md:items-center md:flex-row-reverse mb-12" data-aos="fade-left">
+                        <div class="md:w-1/2 md:pl-8">
+                            <h3 class="text-2xl font-bold mb-2">02. Diseño y Desarrollo</h3>
+                            <p class="text-gray-700">Creamos prototipos y diseñamos la experiencia de usuario (UI/UX). Nuestros desarrolladores construyen el software con código limpio y eficiente.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 mt-4 md:mt-0 md:text-left">
+                            <span class="text-6xl font-extrabold text-gray-200 tracking-tighter" aria-hidden="true">02</span>
+                        </div>
+                    </div>
+
+                    <div class="md:flex md:items-center md:justify-start mb-12" data-aos="fade-right">
+                        <div class="md:w-1/2 md:pr-8">
+                            <h3 class="text-2xl font-bold mb-2">03. Pruebas y Despliegue</h3>
+                            <p class="text-gray-700">Realizamos pruebas exhaustivas para asegurar la calidad y eliminar errores. Desplegamos la solución en un entorno de producción seguro.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8 mt-4 md:mt-0 md:text-right">
+                            <span class="text-6xl font-extrabold text-gray-200 tracking-tighter" aria-hidden="true">03</span>
+                        </div>
+                    </div>
+
+                    <div class="md:flex md:items-center md:flex-row-reverse" data-aos="fade-left">
+                        <div class="md:w-1/2 md:pl-8">
+                            <h3 class="text-2xl font-bold mb-2">04. Soporte y Crecimiento</h3>
+                            <p class="text-gray-700">Ofrecemos mantenimiento continuo, soporte técnico y planes de mejora para que su software evolucione con su negocio.</p>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 mt-4 md:mt-0 md:text-left">
+                            <span class="text-6xl font-extrabold text-gray-200 tracking-tighter" aria-hidden="true">04</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tech" class="py-20 bg-white relative overflow-hidden" role="region" aria-labelledby="tech-title">
+        <div class="absolute top-20 left-10 w-64 h-64 bg-gray-300 opacity-20 rounded-full blur-3xl" aria-hidden="true"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-gray-300 opacity-20 rounded-full blur-3xl" aria-hidden="true"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 id="tech-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Tecnologías Clave</h2>
+            <div class="max-w-5xl mx-auto flex flex-wrap justify-center items-center gap-6 md:gap-8">
+                
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="50">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="100">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">Node.js</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="150">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">React</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">Python</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="250">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">C# / .NET</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="300">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="SQL Server" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">SQL Server</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="350">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">PostgreSQL</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="400">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">Docker</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="450">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="h-16 w-16" />
+                    <span class="mt-2 font-medium text-gray-700">Azure</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="450">
+                    <img loading="lazy" src="https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare" class="h-16 w-16"/>
+                    <span class="mt-2 font-medium text-gray-700">Cloudflare</span>
+                </div>
+                <div class="flex flex-col items-center p-4 transition-transform duration-300 hover:scale-110" data-aos="zoom-in-up" data-aos-delay="450">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="h-16 w-16"/>
+                    <span class="mt-2 font-medium text-gray-700">Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 bg-gray-100" role="region" aria-labelledby="portfolio-title">
+        <div class="container mx-auto px-6">
+            <h2 id="portfolio-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Proyectos Destacados</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <a href="#" class="card-glow rounded-lg shadow-lg overflow-hidden group bg-white block" data-aos="fade-up" data-aos-delay="100" data-modal-target="portfolio-modal-1">
+                    <div class="relative overlay-effect">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1573167507387-6999c884d64e?q=80&w=1469&auto=format&fit=crop" alt="Imagen del Proyecto 1: Gestión de Flotilla" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-lg font-bold">Ver Detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">Gestión de Flotilla</h3>
+                        <p class="text-gray-700 mb-4">Sistema web integral para el seguimiento en tiempo real, mantenimiento y logística de vehículos.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Node.js</span>
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">React</span>
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">PostgreSQL</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card-glow rounded-lg shadow-lg overflow-hidden group bg-white block" data-aos="fade-up" data-aos-delay="200" aria-label="Ver detalles de E-commerce de Ropa">
+                    <div class="relative overlay-effect">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1522199755839-a28c865c0e9e?q=80&w=1470&auto=format&fit=crop" alt="Imagen del Proyecto 2: E-commerce de Ropa" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-lg font-bold">Ver Detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">E-commerce de Ropa</h3>
+                        <p class="text-gray-700 mb-4">Plataforma de comercio electrónico con pasarela de pago, gestión de inventario y perfiles de usuario.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Python</span>
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Django</span>
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Stripe</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card-glow rounded-lg shadow-lg overflow-hidden group bg-white block" data-aos="fade-up" data-aos-delay="300" aria-label="Ver detalles de App de Analíticas">
+                    <div class="relative overlay-effect">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop" alt="Imagen del Proyecto 3: App de Analíticas" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white text-lg font-bold">Ver Detalles</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3">App de Analíticas</h3>
+                        <p class="text-gray-700 mb-4">Dashboard de visualización de datos en tiempo real para métricas de negocio clave (KPIs).</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Vue.js</span>
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Firebase</span>
+                            <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Chart.js</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="insights" class="py-20 bg-white" role="region" aria-labelledby="insights-title">
+        <div class="container mx-auto px-6">
+            <h2 id="insights-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Nuestros Insights</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+
+                <a href="#" class="card-glow rounded-lg shadow-lg overflow-hidden group block" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overlay-effect">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1516116216624-53e69707056e?q=80&w=1470&auto=format&fit=crop" alt="Imagen de artículo: 5 Razones para una API REST" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 bg-white">
+                        <span class="text-sm font-semibold text-black">DESARROLLO WEB</span>
+                        <h3 class="text-xl font-bold mb-3 mt-2">5 Razones por las que tu negocio necesita una API REST</h3>
+                        <p class="text-gray-700">Descubre cómo una API puede escalar tus operaciones y abrir nuevas líneas de negocio...</p>
+                    </div>
+                </a>
+
+                <a href="#" class="card-glow rounded-lg shadow-lg overflow-hidden group block" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overlay-effect">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1470&auto=format&fit=crop" alt="Imagen de artículo: SQL vs NoSQL" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 bg-white">
+                        <span class="text-sm font-semibold text-black">BASES DE DATOS</span>
+                        <h3 class="text-xl font-bold mb-3 mt-2">SQL vs. NoSQL: ¿Cuándo usar cada uno?</h3>
+                        <p class="text-gray-700">Tomar la decisión correcta sobre tu base de datos es crucial para el rendimiento...</p>
+                    </div>
+                </a>
+
+                <a href="#" class="card-glow rounded-lg shadow-lg overflow-hidden group block" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overlay-effect">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1607799279861-4d5211e2c16e?q=80&w=1470&auto=format&fit=crop" alt="Imagen de artículo: Glassmorphism" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 bg-white">
+                        <span class="text-sm font-semibold text-black">UX/UI</span>
+                        <h3 class="text-xl font-bold mb-3 mt-2">El impacto del 'Glassmorphism' en el diseño moderno</h3>
+                        <p class="text-gray-700">Analizamos la tendencia de diseño que estás viendo en esta misma página...</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-100" role="region" aria-labelledby="about-title">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div id="about-image-wrapper" class="overlay-effect rounded-lg shadow-xl">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&q=80&w=1470&auto=format&fit=crop" alt="Equipo de desarrollo de software trabajando en oficina" class="rounded-lg object-cover w-full h-full">
+                </div>
+                <div class="mt-8 md:mt-0" data-aos="fade-left">
+                    <span id="about-title" class="text-black font-semibold">SOBRE NOSOTROS</span>
+                    <h2 class="text-3xl font-bold my-4">Somos su socio tecnológico estratégico</h2>
+                    <p class="text-gray-700 text-lg mb-4">
+                        En Waza Softsolutions, no solo escribimos código. Construimos relaciones. Entendemos que cada cliente es único, y por eso nos dedicamos a crear <strong>software a la medida</strong> que resuelva problemas reales y genere valor tangible.
+                    </p>
+                    <p class="text-gray-700 text-lg">
+                        Nuestro equipo de expertos utiliza las últimas tecnologías para entregar productos robustos, escalables y fáciles de usar. Su éxito es nuestro objetivo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="team" class="py-20 bg-white" role="region" aria-labelledby="team-title">
+        <div class="container mx-auto px-6">
+            <h2 id="team-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Nuestro Equipo</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <div class="card-glow rounded-lg shadow-lg overflow-hidden group bg-white text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img loading="lazy" src="public/assets/images/JavierCarranza.jpg" alt="Foto de JavierCarranza, Desarrollador" class="w-32 h-32 rounded-full mx-auto mt-8 border-4 border-gray-200 shadow-md">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-1">Javier Carranza</h3>
+                        <p class="text-gray-500 font-medium mb-3">Desarrollador</p>
+                        <p class="text-gray-700 mb-6 px-4 group-hover:opacity-70 transition-opacity duration-300">Descripción breve del integrante, su pasión por la tecnología y su rol principal en la empresa.</p>
+                        <div class="flex justify-center gap-5 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                            <a href="#" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="LinkedIn de Nombre Apellido">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5Zm-8 19H6v-9h5v9Zm-2.5-10.88c-.9 0-1.63-.72-1.63-1.62s.73-1.62 1.63-1.62 1.63.72 1.63 1.62-.73 1.62-1.63 1.62ZM18 19h-4.99v-4.5c0-1.28.62-2.12 1.85-2.12 1.17 0 1.64.87 1.64 2.12V19H18Z"></path></svg>
+                            </a>
+                            <a href="https://github.com/JavierCarranza2203" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="GitHub de JavierCarranza">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-1.02-.01-1.84-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.28.1-2.65 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85 0 1.33-.01 2.41-.01 2.73 0 .27.18.58.69.48C19.13 20.17 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glow rounded-lg shadow-lg overflow-hidden group bg-white text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img loading="lazy" src="public/assets/images/AlejandroColin.jpg" alt="Foto de Alejandro Colin, Desarrollador" class="w-32 h-32 rounded-full mx-auto mt-8 border-4 border-gray-200 shadow-md">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-1">Alejandro Colin</h3>
+                        <p class="text-gray-500 font-medium mb-3">Desarrollador</p>
+                        <p class="text-gray-700 mb-6 px-4 group-hover:opacity-70 transition-opacity duration-300">Desarrollador especializado en C#, Node.js, SQL Server y JavaScript, con experiencia en la creación de aplicaciones de escritorio (WPF) y sistemas web modernos y responsivos.</p>
+                        <div class="flex justify-center gap-5 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                            <a href="#" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="LinkedIn de Nombre Apellido">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5Zm-8 19H6v-9h5v9Zm-2.5-10.88c-.9 0-1.63-.72-1.63-1.62s.73-1.62 1.63-1.62 1.63.72 1.63 1.62-.73 1.62-1.63 1.62ZM18 19h-4.99v-4.5c0-1.28.62-2.12 1.85-2.12 1.17 0 1.64.87 1.64 2.12V19H18Z"></path></svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="GitHub de Nombre Apellido">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-1.02-.01-1.84-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.28.1-2.65 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85 0 1.33-.01 2.41-.01 2.73 0 .27.18.58.69.48C19.13 20.17 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glow rounded-lg shadow-lg overflow-hidden group bg-white text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img loading="lazy" src="public/assets/images/RamsesGarcia.jpg" alt="Foto de Nombre Apellido, Diseñadora UX/UI" class="w-32 h-32 rounded-full mx-auto mt-8 border-4 border-gray-200 shadow-md">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-1">Ramses Garcia</h3>
+                        <p class="text-gray-500 font-medium mb-3">Desarrollador</p>
+                        <p class="text-gray-700 mb-6 px-4 group-hover:opacity-70 transition-opacity duration-300">Descripción breve del integrante, su pasión por la tecnología y su rol principal en la empresa.</p>
+                        <div class="flex justify-center gap-5 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                            <a href="#" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="LinkedIn de Nombre Apellido">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5Zm-8 19H6v-9h5v9Zm-2.5-10.88c-.9 0-1.63-.72-1.63-1.62s.73-1.62 1.63-1.62 1.63.72 1.63 1.62-.73 1.62-1.63 1.62ZM18 19h-4.99v-4.5c0-1.28.62-2.12 1.85-2.12 1.17 0 1.64.87 1.64 2.12V19H18Z"></path></svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="GitHub de Nombre Apellido">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-1.02-.01-1.84-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.28.1-2.65 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85 0 1.33-.01 2.41-.01 2.73 0 .27.18.58.69.48C19.13 20.17 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg>
+                            </a>
+                            <a href="https://steamcommunity.com/id/chenszn" class="text-gray-500 hover:text-black transition duration-300 icon-rotate" aria-label="Steam de Ramses Garcia">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-gray-100" role="region" aria-labelledby="testimonials-title"> 
+        <div class="container mx-auto px-6" data-aos="zoom-in">
+            <h2 id="testimonials-title" class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros clientes</h2>
+            
+            <div class="swiper testimonial-slider max-w-3xl mx-auto">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <div class="text-center p-6">
+                            <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-1.115.08-2.13.08-1.015.18-1.874H12.5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.558a1 1 0 0 0 1 1h1.388q0 1.115-.08 2.13-.08 1.015-.18 1.874H9.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h2.5Zm-8 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H2.612q0-1.115.08-2.13.08-1.015.18-1.874H4.5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1.5a1 1 0 0 0-1 1v4.558a1 1 0 0 0 1 1h1.388q0 1.115-.08 2.13-.08 1.015-.18 1.874H1.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h2.5Z"/></svg>
+                            <blockquote class="text-2xl md:text-3xl font-medium text-black">
+                                "Trabajar con Waza Softsolutions transformó nuestro negocio. Entendieron nuestras necesidades a la perfección."
+                            </blockquote>
+                            <p class="mt-6 font-semibold text-gray-700">- Cliente Satisfecho 1</p>
+                            <p class="text-sm text-gray-500">CEO de Empresa Ejemplo</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="text-center p-6">
+                            <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-1.115.08-2.13.08-1.015.18-1.874H12.5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.558a1 1 0 0 0 1 1h1.388q0 1.115-.08 2.13-.08 1.015-.18 1.874H9.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h2.5Zm-8 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H2.612q0-1.115.08-2.13.08-1.015.18-1.874H4.5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1.5a1 1 0 0 0-1 1v4.558a1 1 0 0 0 1 1h1.388q0 1.115-.08 2.13-.08 1.015-.18 1.874H1.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h2.5Z"/></svg>
+                            <blockquote class="text-2xl md:text-3xl font-medium text-black">
+                                "El proceso de desarrollo fue transparente y ágil. El producto final es robusto y escalable. 100% recomendados."
+                            </blockquote>
+                            <p class="mt-6 font-semibold text-gray-700">- Cliente Satisfecho 2</p>
+                            <p class="text-sm text-gray-500">CTO de Startup Tecnológica</p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="text-center p-6">
+                            <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-1.115.08-2.13.08-1.015.18-1.874H12.5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.558a1 1 0 0 0 1 1h1.388q0 1.115-.08 2.13-.08 1.015-.18 1.874H9.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h2.5Zm-8 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H2.612q0-1.115.08-2.13.08-1.015.18-1.874H4.5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1.5a1 1 0 0 0-1 1v4.558a1 1 0 0 0 1 1h1.388q0 1.115-.08 2.13-.08 1.015-.18 1.874H1.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h2.5Z"/></svg>
+                            <blockquote class="text-2xl md:text-3xl font-medium text-black">
+                                "El soporte post-lanzamiento ha sido excepcional. Siempre están disponibles para resolver nuestras dudas."
+                            </blockquote>
+                            <p class="mt-6 font-semibold text-gray-700">- Cliente Satisfecho 3</p>
+                            <p class="text-sm text-gray-500">Gerente de Operaciones</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-white" role="region" aria-labelledby="faq-title">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 id="faq-title" class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Preguntas Frecuentes</h2>
+            
+            <div class="space-y-6" data-aos="fade-up" data-aos-delay="100">
+                
+                <details class="group bg-white p-6 rounded-lg shadow-md border border-gray-200 transition-colors duration-200 hover:bg-gray-50">
+                    <summary class="flex justify-between items-center font-bold text-lg cursor-pointer">
+                        ¿Cuánto cuesta un proyecto de software a medida?
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        Cada proyecto es único. El costo depende del alcance, la complejidad de las funcionalidades y el tiempo de desarrollo. Contáctanos para una cotización gratuita y detallada basada en tus requisitos.
+                    </p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-lg shadow-md border border-gray-200 transition-colors duration-200 hover:bg-gray-50">
+                    <summary class="flex justify-between items-center font-bold text-lg cursor-pointer">
+                        ¿Cuánto tiempo tarda el desarrollo?
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        Un proyecto simple puede tomar de 4 a 6 semanas, mientras que soluciones más complejas pueden requerir varios meses. Seguimos un proceso ágil para entregar valor lo más pronto posible.
+                    </p>
+                </details>
+
+                <details class="group bg-white p-6 rounded-lg shadow-md border border-gray-200 transition-colors duration-200 hover:bg-gray-50">
+                    <summary class="flex justify-between items-center font-bold text-lg cursor-pointer">
+                        ¿Ofrecen soporte después de la entrega?
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        ¡Sí! Ofrecemos planes de soporte y mantenimiento continuo para asegurar que tu software siga funcionando perfectamente, se mantenga actualizado y escale con tu negocio.
+                    </p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="py-20 bg-gray-100" role="region" aria-label="Llamada a la acción">
+        <div class="container mx-auto px-6 text-center" data-aos="zoom-in-up">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-black mb-4 gradient-text">
+                ¿Tienes una idea?
+            </h2>
+            <p class="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
+                No la dejes en el papel. Hablemos hoy mismo sobre cómo podemos convertir tu visión en una realidad digital.
+            </p>
+            <a href="#contact" class="btn-shine bg-black text-white py-4 px-10 rounded-xl font-bold text-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl">
+                Contáctanos Ahora
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gradient-to-r from-gray-900 to-black text-white relative dot-pattern overflow-hidden" role="region" aria-labelledby="contact-title">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" aria-hidden="true"></div>
+        
+        <div class="container mx-auto px-6 py-20 relative z-10" data-aos="fade-up">
+            
+            <div class="text-center mb-12">
+                <h2 id="contact-title" class="text-3xl font-bold mb-4">¿Listo para construir algo increíble?</h2>
+                <p class="text-lg text-gray-300 max-w-xl mx-auto">
+                    Completa el formulario y hablemos de su proyecto. Consulta gratuita y sin compromiso.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <form action="https://formspree.io/f/TU_URL_DE_FORMSPREE" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="relative z-0">
+                        <input type="text" name="name" id="name" required
+                                class="peer block w-full bg-gray-800 border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300 appearance-none placeholder-transparent"
+                                placeholder="Nombre">
+                        <label for="name" 
+                                class="absolute text-sm text-gray-300 duration-300 transform -translate-y-4 scale-75 top-3 z-10 origin-[0] left-3 
+                                peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 
+                                peer-focus:scale-75 peer-focus:-translate-y-4">
+                            Nombre
+                        </label>
+                    </div>
+
+                    <div class="relative z-0">
+                        <input type="email" name="email" id="email" required
+                                class="peer block w-full bg-gray-800 border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300 appearance-none placeholder-transparent"
+                                placeholder="E-mail">
+                        <label for="email"
+                                class="absolute text-sm text-gray-300 duration-300 transform -translate-y-4 scale-75 top-3 z-10 origin-[0] left-3
+                                peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                                peer-focus:scale-75 peer-focus:-translate-y-4">
+                            E-mail
+                        </label>
+                    </div>
+
+                    <div class="md:col-span-2 relative z-0">
+                        <input type="text" name="subject" id="subject"
+                                class="peer block w-full bg-gray-800 border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300 appearance-none placeholder-transparent"
+                                placeholder="Asunto">
+                        <label for="subject"
+                                class="absolute text-sm text-gray-300 duration-300 transform -translate-y-4 scale-75 top-3 z-10 origin-[0] left-3
+                                peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                                peer-focus:scale-75 peer-focus:-translate-y-4">
+                            Asunto
+                        </label>
+                    </div>
+
+                    <div class="md:col-span-2 relative z-0">
+                        <textarea name="message" id="message" rows="6" required
+                                    class="peer block w-full bg-gray-800 border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300 appearance-none placeholder-transparent"
+                                    placeholder="Tu Mensaje"></textarea>
+                        <label for="message"
+                                class="absolute text-sm text-gray-300 duration-300 transform -translate-y-4 scale-75 top-3 z-10 origin-[0] left-3
+                                peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                                peer-focus:scale-75 peer-focus:-translate-y-4">
+                            Tu Mensaje
+                        </label>
+                    </div>
+
+                    <div class="md:col-span-2 text-center">
+                        <button type="submit"
+                                class="btn-shine bg-white text-black py-4 px-10 rounded-xl font-bold text-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 border-t border-gray-200" role="contentinfo">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-4 gap-12">
+                
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-3 mb-4" aria-label="Página de inicio de Waza Softsolutions">
+                        <img src="public/assets/images/WSLGV01BT.png" alt="Logo Waza Softsolutions" class="h-8 w-8">
+                        <span class="font-extrabold text-2xl text-black">Waza Softsolutions</span>
+                    </a>
+                    <p class="text-gray-600 max-w-md">Convertimos tus ideas en soluciones de software robustas, escalables y diseñadas exclusivamente para tus necesidades.</p>
+                    <p class="text-gray-500 text-sm mt-8">&copy; 2025 Waza Softsolutions. Todos los derechos reservados.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Navegación</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-600 hover:text-black transition-colors">Servicios</a></li>
+                        <li><a href="#portfolio" class="text-gray-600 hover:text-black transition-colors">Proyectos</a></li>
+                        <li><a href="#about" class="text-gray-600 hover:text-black transition-colors">Nosotros</a></li>
+                        <li><a href="#team" class="text-gray-600 hover:text-black transition-colors">Integrantes</a></li>
+                        <li><a href="#insights" class="text-gray-600 hover:text-black transition-colors">Insights</a></li>
+                        <li><a href="#faq" class="text-gray-600 hover:text-black transition-colors">FAQ</a></li>
+                    </ul>
+                    
+                    <h4 class="font-bold text-lg mb-4 mt-8">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li><a href="mailto:contacto@wazasoft.com" class="text-gray-600 hover:text-black transition-colors">contacto@wazasoft.com</a></li>
+                        <li>
+                            <div class="flex space-x-4">
+                                <a href="#" class="magnetic text-gray-500 hover:text-black transition-transform duration-200 ease-out icon-rotate" aria-label="GitHub de Waza Softsolutions">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-1.02-.01-1.84-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.28.1-2.65 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85 0 1.33-.01 2.41-.01 2.73 0 .27.18.58.69.48C19.13 20.17 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg>
+                                </a>
+                                <a href="#" class="magnetic text-gray-500 hover:text-black transition-transform duration-200 ease-out icon-rotate" aria-label="LinkedIn de Waza Softsolutions">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5Zm-8 19H6v-9h5v9Zm-2.5-10.88c-.9 0-1.63-.72-1.63-1.62s.73-1.62 1.63-1.62 1.63.72 1.63 1.62-.73 1.62-1.63 1.62ZM18 19h-4.99v-4.5c0-1.28.62-2.12 1.85-2.12 1.17 0 1.64.87 1.64 2.12V19H18Z"></path></svg>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Suscríbete</h4>
+                    <p class="text-gray-600 mb-4">Recibe nuestros insights y noticias de tecnología directamente en tu correo.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="tu@email.com" class="w-full p-3 rounded-l-lg border-gray-300 border focus:outline-none focus:ring-2 focus:ring-black text-sm text-black" required aria-label="Email para suscribirse al boletín">
+                        <button type="submit" class="bg-black text-white p-3 rounded-r-lg font-bold hover:bg-gray-800 transition-colors" aria-label="Suscribirse al boletín">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" id="back-to-top" class="magnetic fixed bottom-10 right-10 p-3 bg-black text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-gray-800 z-50" aria-label="Volver arriba">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </a>
+
+    <div id="portfolio-modal-1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-1">
+        <div class="modal-content">
+            <button class="modal-close-button" data-modal-close aria-label="Cerrar modal">
+                <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1573167507387-6999c884d64e?q=80&w=1469&auto=format&fit=crop" alt="Gestión de Flotilla" class="w-full h-60 object-cover rounded-lg mb-6">
+            <h3 id="modal-title-1" class="text-3xl font-bold mb-4">Gestión de Flotilla</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">Node.js</span>
+                <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">React</span>
+                <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">PostgreSQL</span>
+                <span class="text-xs font-semibold bg-gray-200 text-gray-800 py-1 px-3 rounded-full">GPS Tracking</span>
+            </div>
+            <p class="text-gray-700 mb-4">
+                Desarrollamos un sistema web integral para el seguimiento en tiempo real, mantenimiento preventivo y optimización de rutas para una flotilla de más de 50 vehículos.
+            </p>
+            <p class="text-gray-700 mb-6">
+                La solución incluyó un dashboard administrativo para visualizar KPIs, alertas automáticas de mantenimiento y una PWA para que los conductores reportaran incidencias.
+            </p>
+            <a href="#contact" class="btn-shine bg-black text-white py-3 px-8 rounded-lg font-bold text-lg hover:bg-gray-800 transition-all duration-300">
+                Inicia un proyecto similar
+            </a>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="public/js/script.js"></script>
+
+</body>
+</html>

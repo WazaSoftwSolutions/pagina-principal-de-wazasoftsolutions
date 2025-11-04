@@ -1,0 +1,349 @@
+body {
+    font-family: 'Inter', sans-serif;
+    cursor: none;
+    transition: opacity 0.5s ease;
+}
+body.loaded {
+    opacity: 1;
+    
+}
+
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #f3f4f6; /* Coincide con el fondo del header */
+    z-index: 12000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+#preloader .logo-pulse {
+    width: 150px; /* Tamaño del logo en preloader */
+    animation: pulse 4.2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+}
+
+#cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: #000;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10001;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+#cursor-outline {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, transform 0.1s ease-out;
+}
+body.cursor-grow #cursor-dot {
+    background-color: #fff;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+body.cursor-grow #cursor-outline {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(0, 0, 0, 1);
+}
+@media (max-width: 768px) {
+    body { cursor: auto; }
+    #cursor-dot, #cursor-outline { display: none; }
+}
+
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal 1s ease-out forwards;
+}
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(-100%) skewX(-20deg);
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn-shine:hover::after {
+    transform: translateX(100%) skewX(-20deg);
+}
+
+#read-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background: #000;
+    z-index: 100;
+    transition: width 0.1s ease-out;
+}
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.modal.active .modal-content {
+    transform: scale(1);
+}
+.modal-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #f3f4f6;
+    border-radius: 99px;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.modal-close-button:hover {
+    background: #e5e7eb;
+}
+.parallax-bg {
+    background-image: url('public/assets/images/WSLGV01BT.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-attachment: fixed;
+    opacity: 0.03;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.particle {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10% { opacity: 0.3; }
+    50% { transform: translateY(-100vh) translateX(50px) scale(1.5); opacity: 0.1; }
+    90% { opacity: 0.3; }
+}
+.gradient-text {
+    background: linear-gradient(90deg, #000 0%, #666 50%, #000 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite, reveal 1s ease-out forwards;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+.glass-logo {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+.dot-pattern {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+.card-glow {
+    position: relative;
+    overflow: hidden;
+}
+.card-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, transparent, rgba(0,0,0,0.5), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.card-glow:hover::before {
+    opacity: 1;
+}
+.scroll-indicator {
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+.icon-rotate {
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.icon-rotate:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+.overlay-effect {
+    position: relative;
+    overflow: hidden;
+}
+.overlay-effect::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.overlay-effect:hover::after {
+    opacity: 1;
+}
+.glass-advantage {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.swiper-pagination-bullet {
+    background: #999;
+    opacity: 1;
+}
+.swiper-pagination-bullet-active {
+    background: #000;
+}
+.panel .panel-content {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out 0.2s;
+}
+.panel-shrunk .panel-content {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    pointer-events: none;
+}
+.panel .panel-title {
+    transition: font-size 0.3s ease-in-out;
+}
+.panel.panel-expanded .panel-title {
+    font-size: 2.75rem;
+    line-height: 1.1;
+    transition: font-size 0.5s ease-in-out 0.2s;
+}
+
+.logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Añadir un degradado suave en los bordes para que parezca infinito */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+.logo-marquee-track {
+    display: flex;
+    /* Ancho 200% para las dos copias de la lista */
+    width: 200%;
+    animation: scroll-marquee 40s linear infinite;
+}
+.logo-marquee-track > div {
+    /* 100% de la pista / 12 logos = 8.33% por logo */
+    width: 8.33%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+.logo-marquee-track svg {
+    width: 100%;
+    max-width: 140px; /* Tamaño máximo del logo */
+    height: 40px; /* Altura fija para alinear */
+    fill: #9ca3af; /* Color gris */
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.logo-marquee-track svg:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    fill: #000;
+}
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Moverse la mitad del ancho (una lista completa) */
+        transform: translateX(-50%);
+    }
+}
+
+#process-timeline {
+    height: 0; /* GSAP animará esto a 100% */
+}
