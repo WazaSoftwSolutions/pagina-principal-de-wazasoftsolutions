@@ -264,38 +264,55 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Prevenir envío normal del formulario
 
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
+            // const formData = new FormData(contactForm);
+            // const data = Object.fromEntries(formData.entries());
+            
             // Mostrar mensaje de carga
             contactMessage.className = 'mb-6 bg-blue-500 text-white px-4 py-3 rounded-lg';
             contactMessage.innerHTML = 'Enviando mensaje...';
             contactMessage.classList.remove('hidden');
 
-            fetch('/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(result => {
-                if (result.success) {
-                    contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
-                    contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
-                    contactForm.reset(); // Limpiar el formulario
-                } else {
-                    contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
-                    contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
+            // fetch('/contact', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(data),
+            // })
+            // .then(response => response.json())
+            // .then(result => {
+            //     if (result.success) {
+            //         contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
+            //         contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
+            //         contactForm.reset(); // Limpiar el formulario
+            //     } else {
+            //         contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
+            //         contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
+            //     }
+            // })
+            // .catch(error => {
+            //     console.error('Error:', error);
+            //     contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
+            //     contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
+            // });
+
+            const now = new Date();
+            const formattedTime = now.toLocaleString();
+
+            document.getElementById('time').value = formattedTime;
+
+            const serviceID = 'service_3orgoog';
+            const templateID = 'template_95wsviw';
+
+            emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
+                contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
+                contactForm.reset(); // Limpiar el formulario
+            }, (err) => {
                 contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
                 contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
             });
         });
     }
-
 });

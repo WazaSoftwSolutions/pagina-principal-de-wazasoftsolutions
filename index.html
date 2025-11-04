@@ -760,10 +760,10 @@
                     </div>
 
                     <div class="md:col-span-2 relative z-0">
-                        <input type="text" name="subject" id="subject"
+                        <input type="text" name="title" id="title"
                                 class="peer block w-full bg-gray-800 border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300 appearance-none placeholder-transparent"
                                 placeholder="Asunto">
-                        <label for="subject"
+                        <label for="title"
                                 class="absolute text-sm text-gray-300 duration-300 transform -translate-y-4 scale-75 top-3 z-10 origin-[0] left-3
                                 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
                                 peer-focus:scale-75 peer-focus:-translate-y-4">
@@ -782,6 +782,8 @@
                             Tu Mensaje
                         </label>
                     </div>
+
+                    <input type="hidden" name="time" id="time">
 
                     <div class="md:col-span-2 text-center">
                         <button type="submit"
@@ -880,10 +882,17 @@
         </div>
     </div>
 
-
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "Y_OsSmCpPx0at1Geo",
+        });
+    })();
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="public/js/script.js"></script>
-
-   
 </body>
 </html>
