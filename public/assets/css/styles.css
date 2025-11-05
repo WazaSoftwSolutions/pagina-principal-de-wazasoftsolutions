@@ -3,6 +3,7 @@ body {
     cursor: none;
     transition: opacity 0.5s ease;
 }
+
 body.loaded {
     opacity: 1;
     
@@ -73,7 +74,11 @@ body.cursor-grow #cursor-outline {
     height: 60px;
     border-color: rgba(0, 0, 0, 1);
 }
-@media (max-width: 768px) {
+@media (max-width: 640px) {
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
     body { cursor: auto; }
     #cursor-dot, #cursor-outline { display: none; }
 }

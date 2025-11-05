@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
+                if (error) { 
                     console.log(error);
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ success: false, message: 'Error al enviar el email' }));
