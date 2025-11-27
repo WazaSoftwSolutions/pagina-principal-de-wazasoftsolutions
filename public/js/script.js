@@ -1,16 +1,75 @@
-// Usamos window.onload para esperar que TODO (incluyendo imágenes) cargue
 window.onload = () => {
 
-    // Añadimos un retraso
-    setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-            preloader.classList.add('hidden');
-        }
-        // Hacemos visible el body
-        document.body.classList.add('loaded');
-    }, 1500); // <-- ¡Aquí está la magia! 1500ms = 1.5 segundos
+    const preloader = document.getElementById('preloader');
+    const preloaderLogo = document.getElementById('preloader-logo-img');
+    const letters = document.querySelectorAll('#preloader-text .text-reveal-letter');
+    
+    const curtainLeft = document.getElementById('curtain-left');
+    const curtainRight = document.getElementById('curtain-right');
 
+    const delayBeforeCurtain = 0.8;
+    const curtainDuration = 1.0; 
+
+    const tl = gsap.timeline({
+        paused: true,
+        defaults: { duration: 0.6, ease: "power2.out" }
+    });
+
+    tl.from(preloaderLogo, {
+        opacity: 0,
+        y: 20,
+        scale: 0.8
+    });
+
+    tl.to(letters, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.03, 
+        duration: 0.5
+    }, "-=0.2"); 
+
+    tl.to("#preloader-text", {
+        letterSpacing: "0.2em", 
+        duration: 0.8,
+        ease: "power3.inOut"
+    }, "+=0.2"); 
+
+    tl.play(); 
+    
+    const totalAnimDuration = tl.duration();
+
+    setTimeout(() => {
+        
+        if (preloader) {
+            gsap.to(preloader, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out",
+                onComplete: () => {
+                    preloader.classList.add('hidden');
+                }
+            });
+        }
+        
+        gsap.timeline({
+            delay: 0.2,
+            onComplete: () => {
+                 document.body.classList.add('loaded');
+            }
+        })
+        .to(curtainLeft, {
+            xPercent: -100, // Desliza el panel izquierdo completamente a la izquierda
+            duration: curtainDuration,
+            ease: "power3.inOut"
+        }, "startCurtain") // Etiqueta para sincronizar ambas mitades
+        .to(curtainRight, {
+            xPercent: 100, // Desliza el panel derecho completamente a la derecha
+            duration: curtainDuration,
+            ease: "power3.inOut"
+        }, "startCurtain");
+
+
+    }, (totalAnimDuration * 1000) + (1000 * delayBeforeCurtain)); 
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -121,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
             panelLeft.classList.add('md:w-[25%]', 'panel-shrunk');
         });
     }
+
+    
 
     // Lógica Barra de Progreso
     const readProgressBar = document.getElementById('read-progress-bar');

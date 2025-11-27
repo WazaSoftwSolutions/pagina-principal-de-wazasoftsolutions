@@ -39,6 +39,24 @@ body.loaded {
     }
 }
 
+.curtain {
+    position: fixed;
+    top: 0;
+    width: 50vw; /* Cada uno cubre la mitad del ancho de la ventana */
+    height: 100vh;
+    background-color: #f3f4f6; /* Usar el mismo color del preloader/fondo para una transición fluida */
+    z-index: 11000; /* Estará justo debajo del preloader (z-index: 12000) */
+    pointer-events: none; /* Crucial: permite que los clics pasen a la página cuando se mueva */
+}
+
+#curtain-left {
+    left: 0;
+}
+
+#curtain-right {
+    right: 0;
+}
+
 #cursor-dot {
     position: fixed;
     width: 8px;
@@ -352,3 +370,5 @@ body.cursor-grow #cursor-outline {
 #process-timeline {
     height: 0; /* GSAP animará esto a 100% */
 }
+
+
