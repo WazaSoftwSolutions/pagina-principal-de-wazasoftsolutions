@@ -35,12 +35,10 @@ const server = http.createServer((req, res) => {
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
-                if (error) { 
-                    console.log(error);
+                if (error) {
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ success: false, message: 'Error al enviar el email' }));
                 } else {
-                    console.log('Email sent: ' + info.response);
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify({ success: true, message: 'Email enviado exitosamente' }));
                 }
@@ -87,7 +85,7 @@ const server = http.createServer((req, res) => {
                     res.end('Server error');
                 }
             } else {
-                res.writeHead(200, {'Content-Type': contentType});
+                res.writeHead(200, { 'Content-Type': contentType });
                 res.end(data);
             }
         });

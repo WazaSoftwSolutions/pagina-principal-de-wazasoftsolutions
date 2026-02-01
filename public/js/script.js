@@ -1,81 +1,63 @@
 window.onload = () => {
 
     const preloader = document.getElementById('preloader');
-    const preloaderLogo = document.getElementById('preloader-logo-img');
-    const letters = document.querySelectorAll('#preloader-text .text-reveal-letter');
-    
     const curtainLeft = document.getElementById('curtain-left');
     const curtainRight = document.getElementById('curtain-right');
 
-    const delayBeforeCurtain = 0.8;
-    const curtainDuration = 1.0; 
+    const delayBeforeCurtain = 0.5;
+    const curtainDuration = 0.8;
 
     const tl = gsap.timeline({
-        paused: true,
-        defaults: { duration: 0.6, ease: "power2.out" }
+        defaults: { ease: "power2.out" },
+        onComplete: () => {
+            // Animación finalizada
+        }
     });
 
-    tl.from(preloaderLogo, {
-        opacity: 0,
-        y: 20,
-        scale: 0.8
-    });
+    // Simplemente asegurarse de que el preloader sea visible un momento y luego se vaya
+    if (preloader) {
+        tl.to(preloader, {
+            opacity: 0,
+            duration: 0.5,
+            delay: 0.5,
+            onComplete: () => {
+                preloader.classList.add('hidden');
+            }
+        });
+    }
 
-    tl.to(letters, {
-        opacity: 1,
-        y: 0,
-        stagger: 0.03, 
-        duration: 0.5
-    }, "-=0.2"); 
-
-    tl.to("#preloader-text", {
-        letterSpacing: "0.2em", 
-        duration: 0.8,
-        ease: "power3.inOut"
-    }, "+=0.2"); 
-
-    tl.play(); 
-    
     const totalAnimDuration = tl.duration();
 
+    // Sincronizar cortinas
     setTimeout(() => {
-        
-        if (preloader) {
-            gsap.to(preloader, {
-                opacity: 0,
-                duration: 0.5,
-                ease: "power2.out",
-                onComplete: () => {
-                    preloader.classList.add('hidden');
-                }
-            });
-        }
-        
         gsap.timeline({
-            delay: 0.2,
             onComplete: () => {
-                 document.body.classList.add('loaded');
+                document.body.classList.add('loaded');
             }
         })
-        .to(curtainLeft, {
-            xPercent: -100, // Desliza el panel izquierdo completamente a la izquierda
-            duration: curtainDuration,
-            ease: "power3.inOut"
-        }, "startCurtain") // Etiqueta para sincronizar ambas mitades
-        .to(curtainRight, {
-            xPercent: 100, // Desliza el panel derecho completamente a la derecha
-            duration: curtainDuration,
-            ease: "power3.inOut"
-        }, "startCurtain");
+            .to(curtainLeft, {
+                x: '-100%',
+                duration: curtainDuration,
+                ease: "power3.inOut"
+            }, 0)
+            .to(curtainRight, {
+                x: '100%',
+                duration: curtainDuration,
+                ease: "power3.inOut"
+            }, 0);
 
+        // Iniciar AOS después de que las cortinas se abran
+        setTimeout(() => {
+            AOS.refresh();
+        }, curtainDuration * 1000);
 
-    }, (totalAnimDuration * 1000) + (1000 * delayBeforeCurtain)); 
+    }, (totalAnimDuration * 1000));
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     AOS.init({
-        duration: 600,
+        duration: 400,
         once: true,
         offset: 50,
     });
@@ -181,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    
+
 
     // Lógica Barra de Progreso
     const readProgressBar = document.getElementById('read-progress-bar');
@@ -238,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cursorOutline = document.getElementById('cursor-outline');
 
     if (cursorDot && cursorOutline) {
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('mousemove', function (e) {
             cursorDot.style.left = e.clientX + 'px';
             cursorDot.style.top = e.clientY + 'px';
 
@@ -317,45 +299,19 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Error al inicializar GSAP: ", e);
     }
 
+
     // Lógica de envío del formulario de contacto
     const contactForm = document.getElementById('contact-form');
     const contactMessage = document.getElementById('contact-message');
 
     if (contactForm && contactMessage) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault(); // Prevenir envío normal del formulario
 
-            // const formData = new FormData(contactForm);
-            // const data = Object.fromEntries(formData.entries());
-            
             // Mostrar mensaje de carga
             contactMessage.className = 'mb-6 bg-blue-500 text-white px-4 py-3 rounded-lg';
             contactMessage.innerHTML = 'Enviando mensaje...';
             contactMessage.classList.remove('hidden');
-
-            // fetch('/contact', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data),
-            // })
-            // .then(response => response.json())
-            // .then(result => {
-            //     if (result.success) {
-            //         contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
-            //         contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
-            //         contactForm.reset(); // Limpiar el formulario
-            //     } else {
-            //         contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
-            //         contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            //     }
-            // })
-            // .catch(error => {
-            //     console.error('Error:', error);
-            //     contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
-            //     contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            // });
 
             const now = new Date();
             const formattedTime = now.toLocaleString();
@@ -366,14 +322,106 @@ document.addEventListener('DOMContentLoaded', function() {
             const templateID = 'template_95wsviw';
 
             emailjs.sendForm(serviceID, templateID, this)
-            .then(() => {
-                contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
-                contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
-                contactForm.reset(); // Limpiar el formulario
-            }, (err) => {
-                contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
-                contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
-            });
+                .then(() => {
+                    contactMessage.className = 'mb-6 bg-green-500 text-white px-4 py-3 rounded-lg';
+                    contactMessage.innerHTML = '¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos pronto.';
+                    contactForm.reset(); // Limpiar el formulario
+                }, (err) => {
+                    contactMessage.className = 'mb-6 bg-red-500 text-white px-4 py-3 rounded-lg';
+                    contactMessage.innerHTML = 'Error al enviar el mensaje. Por favor, intenta nuevamente.';
+                });
         });
     }
+
+    // --- Nuevas Implementaciones (Scroll Suave & Tilt) ---
+
+    // 1. Lenis Smooth Scroll
+    try {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Integrar Lenis con GSAP ScrollTrigger
+        if (typeof ScrollTrigger !== 'undefined') {
+            lenis.on('scroll', ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+
+            gsap.ticker.lagSmoothing(0);
+        }
+
+
+    } catch (e) {
+    }
+
+    // 2. Vanilla Tilt (Efecto 3D en tarjetas)
+    try {
+        // Aplicar a tarjetas del portafolio (clase .card-glow)
+        if (typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll(".card-glow"), {
+                max: 5,              // Ángulo máximo de inclinación (sutil)
+                speed: 400,          // Velocidad de la transición
+                glare: true,         // Efecto de brillo
+                "max-glare": 0.2,    // Opacidad máxima del brillo
+                scale: 1.02,         // Zoom sutil al hacer hover
+            });
+
+            // Aplicar a tarjetas de testimonios (contenedor interno)
+            // Nota: Swiper + Tilt a veces requiere cuidado, aplicamos al hijo directo del slide
+            VanillaTilt.init(document.querySelectorAll(".swiper-slide > div"), {
+                max: 3,
+                speed: 400,
+                glare: false, // Sin brillo en testimonios para mejor legibilidad
+                scale: 1.0,   // Sin zoom extra
+            });
+
+        }
+    } catch (e) {
+        console.warn("Vanilla Tilt no pudo cargarse:", e);
+    }
+
+    // 3. Animación de revelado de texto (Títulos)
+    try {
+        const revealElements = document.querySelectorAll("h2");
+
+        revealElements.forEach(element => {
+            gsap.fromTo(element,
+                {
+                    y: 50,
+                    opacity: 0,
+                    skewY: 7
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    skewY: 0,
+                    duration: 0.5,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%", // Inicia cuando el top del elemento está al 85% del viewport
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+    } catch (e) {
+    }
+
 });
