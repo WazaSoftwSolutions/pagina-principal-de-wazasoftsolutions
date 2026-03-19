@@ -178,66 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', updateProgressBar);
     }
 
-    // Lógica de Modal
-    const modalTriggers = document.querySelectorAll('[data-modal-target]');
-    const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            const modalId = trigger.getAttribute('data-modal-target');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                openModal(modal);
-            }
-        });
-    });
-    modalCloseButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const modal = button.closest('.modal');
-            if (modal) {
-                closeModal(modal);
-            }
-        });
-    });
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal(modal);
-            }
-        });
-    });
-    function openModal(modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal(modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
 
-    // Lógica de Cursor Personalizado
-    const cursorDot = document.getElementById('cursor-dot');
-    const cursorOutline = document.getElementById('cursor-outline');
-
-    if (cursorDot && cursorOutline) {
-        window.addEventListener('mousemove', function (e) {
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-
-            cursorOutline.style.left = e.clientX + 'px';
-            cursorOutline.style.top = e.clientY + 'px';
-        });
-
-        const hoverElements = document.querySelectorAll('a, button, [data-modal-target], .icon-rotate, .swiper-pagination-bullet, .panel, summary, [type="submit"], details, .card-glow, .logo-marquee-track svg');
-        hoverElements.forEach((el) => {
-            el.addEventListener('mouseenter', () => {
-                document.body.classList.add('cursor-grow');
-            });
-            el.addEventListener('mouseleave', () => {
-                document.body.classList.remove('cursor-grow');
-            });
-        });
-    }
 
     // Lógica de Botón Magnético
     const magneticElements = document.querySelectorAll('.magnetic');
@@ -348,6 +289,23 @@ document.addEventListener('DOMContentLoaded', function () {
             touchMultiplier: 2,
         });
 
+        // Manejar clics en enlaces de navegación para deslizamiento suave (Smooth Scroll)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    lenis.scrollTo(targetElement, {
+                        offset: -80, // Ajuste para el header sticky
+                        duration: 1.5,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                    });
+                }
+            });
+        });
+
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
@@ -368,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     } catch (e) {
+        console.error("Error al inicializar Lenis o Smooth Scroll:", e);
     }
 
     // 2. Vanilla Tilt (Efecto 3D en tarjetas)
