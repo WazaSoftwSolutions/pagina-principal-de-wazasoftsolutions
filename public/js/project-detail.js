@@ -24,7 +24,7 @@ function injectProjectData(data) {
     document.getElementById('project-description').innerText = data.description;
     
     // Title in Head
-    document.title = `${data.title} | Waza Softsolutions`;
+    document.title = `${data.title} | WazaDevs`;
 
     // Gallery
     const thumbnailList = document.getElementById('thumbnail-list');

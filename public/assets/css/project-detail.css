@@ -34,7 +34,7 @@ body {
 
 /* Project Hero */
 .project-hero {
-    padding-bottom: 4rem;
+    padding-bottom: 0rem;
 }
 
 .project-title {
@@ -120,7 +120,7 @@ body {
 }
 
 .section-content {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .glass-card {

@@ -148,12 +148,14 @@ const projectsData = {
     },
     "gestor-legal": {
         title: "Gestor de Documentos Legales",
-        category: "LegalTech",
+        category: "Gestor Notarial",
         year: "2023",
         description: "Sistema especializado para el control de trámites notariales y seguimiento documental mediante almacenamiento digital seguro. Organiza expedientes y facilita la búsqueda de información crítica en entornos legales de alto volumen.",
         images: [
-            "../public/assets/images/gestornotarial.png",
-            "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
+            "../public/assets/images/notaria/login.png",
+            "../public/assets/images/notaria/gestornotarial.png",
+            "../public/assets/images/notaria/see-files.png",
+            "../public/assets/images/notaria/files.png"
         ],
         functionalities: [
             "Control total para trámites notariales (actas, contratos, escritos).",
@@ -162,7 +164,7 @@ const projectsData = {
             "Gestión multi-usuario con roles y permisos específicos.",
             "Seguimiento de estados de trámites en tiempo real."
         ],
-        functionalityImage: "../public/assets/images/gestornotarial.png",
+        functionalityImage: "../public/assets/images/notaria/files.png",
         modules: [
             {
                 icon: "fa-folder-open",
@@ -185,7 +187,7 @@ const projectsData = {
             database: ["MySQL"],
             infrastructure: ["Apache"]
         },
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        videoUrl: "../public/assets/images/notaria/notaria.mp4"
     },
     "recomendador-musica": {
         title: "Sistema de Recomendación Spotify",
@@ -274,5 +276,59 @@ const projectsData = {
             infrastructure: ["Docker", "Vercel / VPS"]
         },
         videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "cyberex": {
+        title: "Cyberex",
+        category: "Ciberseguridad",
+        year: "2025",
+        description: "Herramienta para análisis de correos en tiempo real y prevención de phishing o malware mediante consultas a 96 motores de antivirus, google safe browsing y modelo de inteligencia artificial entrenado para detección de phishing. \nNOTA: Esta aplicación fue realizada para un cliente y los derechos le pertenecen al mismo, esta es solo una demostración de nuestra experiencia.",
+        images: [
+            "../public/assets/images/cyberex/login.png",
+            "../public/assets/images/cyberex/licenses.png",
+            "../public/assets/images/cyberex/analisis.png",
+            "../public/assets/images/cyberex/payment.png",
+
+        ],
+        functionalities: [
+            "Análisis de correos en tiempo real.",
+            "Gestión de usuarios y correos autorizadosa'",
+            "Gestión de licencias.",
+            "Historial de pagos.",
+            "Gestión de dispositivos.",
+            "Compra de limite de dispositivos adicional.",
+            "Cambio de licencia."
+        ],
+        functionalityImage: "../public/assets/images/cyberex/login.png",
+        modules: [
+            {
+                icon: "fa-landmark",
+                name: "Módulo Contable",
+                description: "Herramientas específicas para el cumplimiento de obligaciones fiscales."
+            },
+            {
+                icon: "fa-envelope-open-text",
+                name: "Gestor de Mensajería",
+                description: "Plantillas y envío programado de correos para grandes listas de clientes."
+            },
+            {
+                icon: "fa-file-invoice-dollar",
+                name: "Control de Cobranza",
+                description: "Administración de facturas pendientes y recordatorios automáticos."
+            }
+        ],
+        integrations: [
+            "Serivicio de pagos de Stripe",
+            "API de Google Safe Browsing",
+            "API de Virus Total",
+            "Modelo de IA personalizado",
+            "API de EmailJS",
+        ],
+        technologies: {
+            frontend: ["HTML", "Tailwind CSS"],
+            backend: ["Node.js", "Express", "Python", "FastAPI", "Torch"],
+            database: ["PostgreSQL", "Redis"],
+            infrastructure: ["Docker", "Railway", "Hugging Face", "Netlify", "Chrome Web Store"]
+        },
+        videoUrl: "../public/assets/images/cyberex/cyberex.mp4"
     }
 };

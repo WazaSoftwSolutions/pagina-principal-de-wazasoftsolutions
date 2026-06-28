@@ -1,33 +1,32 @@
 {
-  "name": "pagina-principal-de-wazasoftsolutions",
-  "version": "1.0.0",
-  "description": "Codigo de la pagina principal de Wazasoftsolutions",
-  "main": "index.js",
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./src/css/input.css -o ./public/assets/css/styles.css --minify",
-    "dev:css": "tailwindcss -i ./src/css/input.css -o ./public/assets/css/styles.css --watch"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WazaSoftWolutions/pagina-principal-de-wazasoftsolutions.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/WazaSoftWolutions/pagina-principal-de-wazasoftsolutions/issues"
-  },
-  "homepage": "https://github.com/WazaSoftWolutions/pagina-principal-de-wazasoftsolutions#readme",
   "dependencies": {
-    "dotenv": "^17.2.3",
-    "nodemailer": "^7.0.10"
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-regular-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.0",
+    "framer-motion": "^12.38.0",
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.18",
-    "autoprefixer": "^10.4.24",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

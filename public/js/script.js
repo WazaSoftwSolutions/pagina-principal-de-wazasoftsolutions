@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     lenis.scrollTo(targetElement, {
                         offset: -80, // Ajuste para el header sticky
